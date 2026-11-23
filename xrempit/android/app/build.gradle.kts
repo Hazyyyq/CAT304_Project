@@ -11,6 +11,7 @@ android {
     namespace = "com.example.xrempit"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = "28.2.13676358"
+    //flutter.ndkVersion
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
