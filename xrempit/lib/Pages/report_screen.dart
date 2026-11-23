@@ -106,19 +106,17 @@ class _ReportScreenState extends State<ReportScreen> {
               },
             ),
 
-            SizedBox(height: 16),
-            TextFieldMng(
-              controller: detailsCtrl,
-              obscureText: false,
-              hintText: "Describe incident (Optional)",
-            ),
+            Spacer(),
 
-            SizedBox(height: 16),
-            TextFieldMng(
-              controller: locCtrl,
-              obscureText: false,
-              hintText: "Location (Optional)",
-            ),
+            if (selectedImageBytes != null) ...[
+              SizedBox(height: 12),
+              Image.memory(
+                selectedImageBytes!,
+                height: 400,
+                cacheWidth: 400,
+                fit: BoxFit.cover,
+              ),
+            ],
 
             Spacer(),
 
@@ -135,15 +133,19 @@ class _ReportScreenState extends State<ReportScreen> {
               label: Text(selectedImageName ?? 'Choose Image from Folder'),
             ),
 
-            if (selectedImageBytes != null) ...[
-              SizedBox(height: 12),
-              Image.memory(
-                selectedImageBytes!,
-                height: 120,
-                cacheWidth: 400,
-                fit: BoxFit.cover,
-              ),
-            ],
+            SizedBox(height: 16),
+            TextFieldMng(
+              controller: detailsCtrl,
+              obscureText: false,
+              hintText: "Describe incident (Optional)",
+            ),
+
+            SizedBox(height: 16),
+            TextFieldMng(
+              controller: locCtrl,
+              obscureText: false,
+              hintText: "Location (Optional)",
+            ),
 
             SizedBox(height: 32),
             ElevatedButton(
